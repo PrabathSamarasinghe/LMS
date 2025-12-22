@@ -1,0 +1,23 @@
+{
+  "name": "lms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Learning Management System - Microservices & Micro Frontends",
+  "scripts": {
+    "dev": "concurrently npm:dev:*",
+    "dev:user-service": "npm --prefix backend/UserService run dev",
+    "dev:book-service": "npm --prefix backend/BookService run dev",
+    "dev:borrowing-service": "npm --prefix backend/BorrowingService run dev",
+    "dev:api-gateway": "npm --prefix backend/ApiGateway run dev",
+    "dev:admin-mfe": "npm --prefix frontend/admin-mfe run start",
+    "dev:librarian-mfe": "npm --prefix frontend/librarian-mfe run start",
+    "dev:login-mfe": "npm --prefix frontend/login-mfe run start",
+    "dev:member-mfe": "npm --prefix frontend/member-mfe run start",
+    "dev:load-container": "npm --prefix frontend/load-container run start",
+    "dev:root-config": "npm --prefix frontend/root-config run start",
+    "dev:utility": "npm --prefix frontend/utility run start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

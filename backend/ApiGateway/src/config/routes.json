@@ -1,0 +1,11 @@
+{
+  "borrowings": {
+    "url": "http://localhost:4001"
+  },
+  "books": {
+    "url": "http://localhost:4002"
+  },
+  "users": {
+    "url": "http://localhost:4003"
+  }
+}

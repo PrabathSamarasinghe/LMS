@@ -1,0 +1,15 @@
+type Query {
+  GetBorrowedBooks(memberId: String!): [BorrowedBook!]!
+  GetBorrowedRecordById(id: Int!): BorrowedBook
+  GetAllIssuedBooks: [BorrowedBook!]!
+  GetAllRenewRequests: [RenewalRequest!]!
+  GetAllBookCountByMemberId(memberId: String!): Int!
+  GetBorrowedBooksById(memberId: String!): [BorrowedBook!]!
+  GetReturnedBooksById(memberId: String!): [BorrowedBook!]!
+  GetOverdueBooksById(memberId: String!): [BorrowedBook!]!
+  GetTotalFinesByMemberId(memberId: String!): Int!
+  GetBookIsbnById(id: Int!): String!
+  GetPendingRenewalRequestsCountByMemberId(memberId: String!): Int!
+  GetAllFines: [Fine!]!
+  GetFineCollectionStats: FineCollectionStats!
+}

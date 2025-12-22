@@ -1,0 +1,10 @@
+type Query {
+  GetAllBooks: [Book!]!
+  GetBookByISBN(isbn: String!): Book
+  GetBooksByAuthor(authorId: Int!): [Book!]!
+  GetBooksByTitle(title: String!): [Book!]!
+  GetBooksByGenre(Genre: String!): [Book!]!
+  CheckAvailability(isbn: String!): Boolean!
+  GetAuthors: [Author!]!
+  GetRequestedBooks: [RequestNewBook!]!
+}

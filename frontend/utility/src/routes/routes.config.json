@@ -1,0 +1,38 @@
+{
+  "MEMBER": {
+    "base": "/member",
+    "mfe": "@gtn/member-mfe",
+    "allowedRoutes": [
+     {"path": "/dashboard", "component": "Dashboard"},
+     {"path": "/search-books", "component": "SearchBooks"},
+     {"path": "/my-books", "component": "MyBooks"},
+     {"path": "/request-new-books", "component": "RequestNewBooks"},
+     {"path": "/profile", "component": "ProfilePage"}
+    ],
+    "defaultRoute": "/dashboard"
+  },
+
+  "LIBRARIAN": {
+    "base": "/librarian",
+    "mfe": "@gtn/librarian-mfe",
+    "allowedRoutes": [
+      {"path": "/dashboard", "component": "Dashboard"},
+      {"path": "/manage-books", "component": "ManageBooks"},
+      {"path": "/manage-members", "component": "ManageMembers"},
+      {"path": "/issued-books", "component": "IssuedBooks"},
+      {"path": "/profile", "component": "ProfilePage"}
+    ],
+    "defaultRoute": "/dashboard"
+  },
+
+  "ADMIN": {
+    "base": "/admin",
+    "mfe": "@gtn/admin-mfe",
+    "allowedRoutes": [
+      {"path": "/dashboard", "component": "Dashboard"},
+      {"path": "/manage-librarians", "component": "ManageLibrarian"},
+      {"path": "/profile", "component": "ProfilePage"}
+    ],
+    "defaultRoute": "/dashboard"
+  }
+}

@@ -1,0 +1,9 @@
+type Mutation {
+  AddBook(book: BookInput!): String!
+  UpdateBook(isbn: String!, book: BookInput!): String!
+  DeleteBook(isbn: String!): String!
+  AddAuthor(name: String!): Int!
+  RequestNewBook(request: RequestNewBookInput!): String!
+  ApproveBookRequest(requestId: Int!, isApproved: Boolean!): String!
+  ChangeAvailabilityStatus(isbn: String!): String!
+}

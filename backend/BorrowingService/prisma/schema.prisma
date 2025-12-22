@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BorrowRecord {
+  id             Int             @id @default(autoincrement())
+  memberId       String
+  isbn           String
+  borrowDate     DateTime        @default(now())
+  returnDate     DateTime?
+  returnedDate   DateTime?
+  isReturned     Boolean         @default(false)
+  status         String          @default("BORROWED")
+  fine           Fine?           @relation("BorrowRecordToFine")
+  renewalRequest RenewalRequest? @relation("BorrowRecordToRenewalRequest")
+  isRenewed     Boolean         @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([memberId])
+  @@index([isbn])
+
+}
+
+model Fine {
+  id             Int          @id @default(autoincrement())
+  borrowRecordId Int          @unique
+  borrowRecord   BorrowRecord @relation("BorrowRecordToFine", fields: [borrowRecordId], references: [id])
+  memberId       String
+  amount         Decimal      @db.Decimal(10, 2)
+  paid           Boolean      @default(false)
+  issuedDate     DateTime     @default(now())
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+}
+
+model RenewalRequest {
+  id             Int          @id @default(autoincrement())
+  borrowRecordId Int          @unique
+  borrowRecord   BorrowRecord @relation("BorrowRecordToRenewalRequest", fields: [borrowRecordId], references: [id])
+  requestedDays  Int
+  reason         String?
+  isApproved     Boolean      @default(false)
+  isProcessed    Boolean      @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+}

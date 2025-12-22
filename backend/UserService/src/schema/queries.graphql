@@ -1,0 +1,5 @@
+type Query {
+    GetAllUsers(type: String!): [UserOutput!]!
+    GetUserById(userId: Int!): UserOutput
+    GetProfile(userId: String!): UserOutput
+}

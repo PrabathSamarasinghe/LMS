@@ -1,0 +1,5 @@
+type Mutation {
+    CreateUser(userInput: UserInput!): String!
+    UpdateUser(userId: String!, userInput: UpdateUserInput!): String!
+    DeleteUser(userId: Int!): String!
+}

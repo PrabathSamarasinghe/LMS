@@ -1,0 +1,60 @@
+type BorrowedBook {
+    id: Int!
+    isbn: String!
+    memberId: String!
+    borrowDate: String!
+    returnDate: String
+    returnedDate: String
+    status: String
+    fine: Fine
+    isRenewed: Boolean!
+}
+
+type Fine {
+    id: Int!
+    amount: Float!
+    paid: Boolean!
+    updatedAt: String!
+}
+
+type FineCollectionStats {
+    today: Float!
+    thisWeek: Float!
+    thisMonth: Float!
+}
+
+input FineInput {
+    amount: Float!
+    paid: Boolean!
+    memberId: String!
+}
+
+
+type RenewalRequest {
+    id: Int!
+    borrowRecordId: Int!
+    createdAt: String!
+    reason: String!
+    isApproved: Boolean!
+    isProcessed: Boolean!
+    requestedDays: Int!
+    borrowRecord: BorrowedBook!
+}
+
+input RenewRequestInput {
+    reason: String!
+    requestedDays: Int!
+}
+
+input IssueBookInput {
+    isbn: String!
+    memberId: String!
+    dueDate: String!
+    issueDate: String!
+}
+
+input ReturnBookInput {
+    borrowRecordId: Int!
+    isReturned: Boolean!
+    fine: FineInput
+}

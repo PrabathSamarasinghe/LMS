@@ -1,0 +1,54 @@
+input UserInput {
+  email: String!
+  fullname: String!
+  phone: String
+  address: String
+  dateOfBirth: String
+  gender: String
+  nic: String
+  membershipDate: String
+  type: String!
+  status: String
+  registeredBy: String
+}
+
+input UpdateUserInput {
+  email: String
+  fullname: String
+  phone: String
+  address: String
+  dateOfBirth: String
+  gender: String
+  type: String
+  status: String
+}
+
+type User {
+  email: String!
+  fullname: String!
+  phone: String
+  address: String
+  dateOfBirth: String
+  gender: String
+  nic: String
+  membershipDate: String
+  type: String!
+  status: String
+  registeredBy: String
+}
+
+type UserOutput {
+  id: Int!
+  email: String!
+  fullname: String!
+  phone: String
+  address: String
+  cognitoUserId: String!
+  dateOfBirth: String
+  gender: String
+  nic: String
+  membershipDate: String
+  type: String!
+  status: String
+  registeredBy: String
+}

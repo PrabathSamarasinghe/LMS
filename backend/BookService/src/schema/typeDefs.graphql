@@ -1,0 +1,47 @@
+type Book {
+  isbn: String!
+  title: String!
+  Genre: String
+  publisher: String
+  publishedYear: Int
+  language: String
+  shelfLocation: String
+  authorId: Int!
+  available: Boolean!
+  author: Author
+}
+
+type Author {
+  id: Int!
+  name: String!
+}
+
+input BookInput {
+  isbn: String!
+  title: String!
+  Genre: String
+  publisher: String
+  publishedYear: Int
+  language: String
+  shelfLocation: String
+  authorId: Int!
+  available: Boolean!
+}
+
+type RequestNewBook {
+  id: Int!
+  title: String!
+  author: String!
+  reason: String!
+  memberId: String!
+  isProcessed: Boolean!
+  isApproved: Boolean!
+  createdAt: String!
+}
+
+input RequestNewBookInput {
+  title: String!
+  author: String!
+  reason: String!
+  memberId: String!
+}

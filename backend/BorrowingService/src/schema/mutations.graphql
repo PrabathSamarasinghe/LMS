@@ -1,0 +1,7 @@
+type Mutation {
+    IssueABook(issueBookInput: IssueBookInput!): String!
+    ApproveRenewRequest(requestId: Int!, isApproved: Boolean!): String!
+    CreateRenewRequest(borrowRecordId: Int!, renewalRequest: RenewRequestInput!): String!
+    ReturnABook(returnBookInput: ReturnBookInput!): String!
+    PayFine(borrowRecordId: Int!): String!
+}
